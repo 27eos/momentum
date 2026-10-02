@@ -13,7 +13,8 @@
     "electron:dev": "cross-env MOMENTUM_DEV_URL=http://localhost:5273 electron .",
     "electron:build": "npm run build && electron-builder",
     "electron:dir": "npm run build && electron-builder --dir",
-    "release": "npm run build && electron-builder --publish always"
+    "release": "npm run build && electron-builder --publish always",
+    "ship": "npm version patch && git push --follow-tags"
   },
   "build": {
     "appId": "com.dvorsky.momentum",
@@ -25,7 +26,7 @@
     "publish": [
       {
         "provider": "github",
-        "owner": "REPLACE_WITH_GITHUB_USERNAME",
+        "owner": "27eos",
         "repo": "momentum"
       }
     ],
