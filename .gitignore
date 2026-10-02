@@ -1,0 +1,17 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+release/
+*.tsbuildinfo
+
+# local env / secrets (never commit tokens)
+.env
+.env.local
+
+# os / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

@@ -1,0 +1,108 @@
+@import 'tailwindcss';
+
+/* ------------------------------------------------------------------ */
+/*  Momentum design tokens                                             */
+/*  Black + dark-grey with warm gold/orange accents and a green for    */
+/*  growth. IBM Plex Mono to match the TSplus CRM / audit tools.       */
+/* ------------------------------------------------------------------ */
+@theme {
+  --color-bg: #0a0a0c;
+  --color-bg-soft: #101014;
+  --color-surface: #161619;
+  --color-surface-2: #1f1f26;
+  --color-border: #2c2c34;
+  --color-border-soft: #201f26;
+
+  --color-text: #ededf1;
+  --color-muted: #9494a1;
+  --color-faint: #5f5f6b;
+
+  --color-accent: #f2b03d;
+  --color-accent-soft: #ffc766;
+  --color-accent-deep: #c9871a;
+
+  --color-warn: #ff9f43;
+  --color-danger: #f2585b;
+
+  --color-grow: #46d17f;
+  --color-grow-soft: #74e6a2;
+
+  --font-sans: 'IBM Plex Mono', ui-monospace, 'Cascadia Mono', 'Segoe UI Mono',
+    Consolas, monospace;
+
+  --radius-xl: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow: hidden;
+}
+
+/* Warm ambient wash behind the app for depth. */
+#root {
+  background:
+    radial-gradient(1100px 620px at 84% -10%, rgba(242, 176, 61, 0.12), transparent 60%),
+    radial-gradient(900px 560px at 6% 112%, rgba(70, 209, 127, 0.08), transparent 58%);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 999px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-surface-2);
+  background-clip: content-box;
+}
+
+@keyframes check-pop {
+  0% { transform: scale(0.6); opacity: 0; }
+  60% { transform: scale(1.15); }
+  100% { transform: scale(1); opacity: 1; }
+}
+.animate-check-pop {
+  animation: check-pop 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-rise {
+  animation: rise 0.35s ease both;
+}
+
+/* Newly-earned marble settling into the cluster. */
+@keyframes marble-in {
+  0% { opacity: 0; transform: scale(0); }
+  70% { transform: scale(1.18); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.drag {
+  -webkit-app-region: drag;
+}
+.no-drag {
+  -webkit-app-region: no-drag;
+}
